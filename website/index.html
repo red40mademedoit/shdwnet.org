@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHDWNET | Signal Intelligence</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="glitch" data-text="SHDWNET">SHDWNET</h1>
+            <p class="tagline">Signal Intelligence • Data Streams • Pattern Recognition</p>
+        </header>
+        
+        <main>
+            <section class="status-panel">
+                <h2>// LIVE FEEDS</h2>
+                <div class="feed-grid">
+                    <div class="feed-card" id="solar-feed">
+                        <h3>☀️ SOLAR ACTIVITY</h3>
+                        <div class="feed-value" id="kindex">--</div>
+                        <div class="feed-label">K-Index</div>
+                    </div>
+                    <div class="feed-card" id="seismic-feed">
+                        <h3>🌍 SEISMIC</h3>
+                        <div class="feed-value" id="quake-count">--</div>
+                        <div class="feed-label">Events (24h)</div>
+                    </div>
+                    <div class="feed-card" id="signal-feed">
+                        <h3>📡 SIGNAL OUT</h3>
+                        <div class="feed-value" id="signal-value">--</div>
+                        <div class="feed-label">Fuzzy Signal</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="terminal">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">shdwnet@signal:~$</span>
+                </div>
+                <div class="terminal-body" id="log-output">
+                    <p>> Initializing data streams...</p>
+                    <p>> Connecting to NOAA feeds...</p>
+                    <p>> Signal routing active.</p>
+                    <p>> <span class="blink">_</span></p>
+                </div>
+            </section>
+            
+            <section class="info">
+                <p>SHDWNET aggregates open-source intelligence from space weather, seismic activity, and other data streams. Processed signals feed downstream systems including <a href="https://twitch.tv/sunsofthecosmicdust">SOTCD transmissions</a>.</p>
+                <p class="classified">[FURTHER ACCESS REQUIRES AUTHORIZATION]</p>
+            </section>
+        </main>
+        
+        <footer>
+            <p>🜂 Φ 🜂</p>
+        </footer>
+    </div>
+    <script src="js/feeds.js"></script>
+</body>
+</html>

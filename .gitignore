@@ -1,0 +1,10 @@
+# Agent memory with extracted books (large files)
+agent/memory/books/
+
+# Data files
+data/raw/
+data/processed/
+
+# Local config
+.env
+*.log
