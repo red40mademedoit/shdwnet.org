@@ -14,27 +14,119 @@
         </header>
         
         <main>
+            <!-- MASTER SIGNAL -->
+            <section class="master-signal">
+                <div class="signal-meter">
+                    <div class="signal-label">MASTER SIGNAL</div>
+                    <div class="signal-bar">
+                        <div class="signal-fill" id="master-signal-bar"></div>
+                    </div>
+                    <div class="signal-value" id="master-signal">0.50</div>
+                </div>
+            </section>
+            
+            <!-- OSINT FEEDS -->
             <section class="status-panel">
-                <h2>// LIVE FEEDS</h2>
+                <h2>// OSINT FEEDS</h2>
                 <div class="feed-grid">
                     <div class="feed-card" id="solar-feed">
-                        <h3>☀️ SOLAR ACTIVITY</h3>
-                        <div class="feed-value" id="kindex">--</div>
-                        <div class="feed-label">K-Index</div>
+                        <h3>☀️ SOLAR X-RAY</h3>
+                        <div class="feed-value" id="solar-flux">--</div>
+                        <div class="feed-label">Flux Level</div>
+                        <div class="feed-status" id="solar-status">Quiet</div>
                     </div>
                     <div class="feed-card" id="seismic-feed">
                         <h3>🌍 SEISMIC</h3>
                         <div class="feed-value" id="quake-count">--</div>
-                        <div class="feed-label">Events (24h)</div>
+                        <div class="feed-label">Events (1h)</div>
+                        <div class="feed-status" id="quake-max">Max: --</div>
                     </div>
-                    <div class="feed-card" id="signal-feed">
-                        <h3>📡 SIGNAL OUT</h3>
-                        <div class="feed-value" id="signal-value">--</div>
-                        <div class="feed-label">Fuzzy Signal</div>
+                    <div class="feed-card" id="plasma-feed">
+                        <h3>🌬️ SOLAR WIND</h3>
+                        <div class="feed-value" id="plasma-speed">--</div>
+                        <div class="feed-label">km/s</div>
+                        <div class="feed-status" id="plasma-density">Density: --</div>
+                    </div>
+                    <div class="feed-card" id="kindex-feed">
+                        <h3>🧲 GEOMAGNETIC</h3>
+                        <div class="feed-value" id="kindex">--</div>
+                        <div class="feed-label">K-Index</div>
+                        <div class="feed-status" id="kindex-status">--</div>
                     </div>
                 </div>
             </section>
             
+            <!-- HUMINT FEEDS -->
+            <section class="status-panel">
+                <h2>// HUMINT FEEDS</h2>
+                <div class="feed-grid">
+                    <div class="feed-card" id="reddit-feed">
+                        <h3>📱 REDDIT</h3>
+                        <div class="feed-value" id="reddit-activity">--</div>
+                        <div class="feed-label">Activity</div>
+                        <div class="feed-status" id="reddit-crisis">--</div>
+                    </div>
+                    <div class="feed-card" id="hn-feed">
+                        <h3>🖥️ HACKER NEWS</h3>
+                        <div class="feed-value" id="hn-activity">--</div>
+                        <div class="feed-label">Top Score</div>
+                        <div class="feed-status" id="hn-tech">--</div>
+                    </div>
+                    <div class="feed-card" id="news-feed">
+                        <h3>📰 NEWS WIRE</h3>
+                        <div class="feed-value" id="news-intensity">--</div>
+                        <div class="feed-label">Intensity</div>
+                        <div class="feed-status" id="news-crisis">--</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- PLANETARY -->
+            <section class="status-panel">
+                <h2>// CELESTIAL TRACKING</h2>
+                <div class="feed-grid">
+                    <div class="feed-card" id="moon-feed">
+                        <h3>🌙 LUNAR PHASE</h3>
+                        <div class="feed-value" id="moon-phase">--</div>
+                        <div class="feed-label" id="moon-name">--</div>
+                    </div>
+                    <div class="feed-card" id="aspects-feed">
+                        <h3>⚛️ ASPECTS</h3>
+                        <div class="feed-value" id="aspect-count">--</div>
+                        <div class="feed-label">Active</div>
+                        <div class="feed-status" id="aspect-list">--</div>
+                    </div>
+                    <div class="feed-card" id="sigil-feed">
+                        <h3>🔮 ACTIVE SIGIL</h3>
+                        <div class="feed-value sigil" id="current-sigil">Φ</div>
+                        <div class="feed-label" id="sigil-name">phi</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- DOWNSTREAM -->
+            <section class="status-panel downstream">
+                <h2>// DOWNSTREAM OUTPUTS</h2>
+                <div class="output-grid">
+                    <div class="output-card">
+                        <span class="output-icon">🎵</span>
+                        <span class="output-name">SOTCD DJ Bot</span>
+                        <span class="output-status" id="dj-status">●</span>
+                    </div>
+                    <div class="output-card">
+                        <span class="output-icon">🌀</span>
+                        <span class="output-name">Hydra Visuals</span>
+                        <span class="output-status" id="hydra-status">●</span>
+                    </div>
+                    <div class="output-card">
+                        <span class="output-icon">🐦</span>
+                        <span class="output-name">X Bot</span>
+                        <span class="output-status" id="xbot-status">●</span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- TERMINAL LOG -->
             <section class="terminal">
                 <div class="terminal-header">
                     <span class="dot red"></span>
@@ -43,15 +135,13 @@
                     <span class="terminal-title">shdwnet@signal:~$</span>
                 </div>
                 <div class="terminal-body" id="log-output">
-                    <p>> Initializing data streams...</p>
-                    <p>> Connecting to NOAA feeds...</p>
-                    <p>> Signal routing active.</p>
+                    <p>> Initializing SHDWNET...</p>
                     <p>> <span class="blink">_</span></p>
                 </div>
             </section>
             
             <section class="info">
-                <p>SHDWNET aggregates open-source intelligence from space weather, seismic activity, and other data streams. Processed signals feed downstream systems including <a href="https://twitch.tv/sunsofthecosmicdust">SOTCD transmissions</a>.</p>
+                <p>SHDWNET aggregates OSINT + HUMINT from space weather, seismic activity, social feeds, and news wires. Processed signals feed <a href="https://twitch.tv/sunsofthecosmicdust">SOTCD transmissions</a>.</p>
                 <p class="classified">[FURTHER ACCESS REQUIRES AUTHORIZATION]</p>
             </section>
         </main>

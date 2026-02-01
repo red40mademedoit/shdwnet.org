@@ -20,7 +20,7 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     padding: 2rem 0;
     border-bottom: 1px solid #00ff0033;
 }
@@ -48,20 +48,69 @@ h2 {
     letter-spacing: 0.2em;
 }
 
+/* Master Signal */
+.master-signal {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #0f0f0f;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 20px #00ff0033;
+}
+
+.signal-meter {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.signal-label {
+    font-size: 0.9rem;
+    color: #00ff0088;
+    letter-spacing: 0.2em;
+    min-width: 150px;
+}
+
+.signal-bar {
+    flex: 1;
+    height: 30px;
+    background: #1a1a1a;
+    border: 1px solid #00ff0044;
+    position: relative;
+    overflow: hidden;
+}
+
+.signal-fill {
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(90deg, #00ff00, #00ffaa);
+    transition: width 0.5s ease, background 0.5s ease;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.signal-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ff00;
+    text-shadow: 0 0 10px #00ff00;
+    min-width: 80px;
+    text-align: right;
+}
+
+/* Feed Panels */
 .status-panel {
     margin-bottom: 2rem;
 }
 
 .feed-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
 }
 
 .feed-card {
     background: #0f0f0f;
     border: 1px solid #00ff0044;
-    padding: 1.5rem;
+    padding: 1.2rem;
     text-align: center;
     transition: all 0.3s ease;
 }
@@ -72,26 +121,73 @@ h2 {
 }
 
 .feed-card h3 {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
     color: #00ff0088;
 }
 
 .feed-value {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #00ff00;
     text-shadow: 0 0 10px #00ff00;
 }
 
+.feed-value.sigil {
+    font-size: 3rem;
+}
+
 .feed-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: #00ff0066;
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
 
+.feed-status {
+    font-size: 0.65rem;
+    color: #00ff0055;
+    margin-top: 0.5rem;
+}
+
+/* Downstream Outputs */
+.downstream {
+    background: #0a0a0a;
+}
+
+.output-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.output-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    background: #0f0f0f;
+    border: 1px solid #00ff0044;
+}
+
+.output-icon {
+    font-size: 1.5rem;
+}
+
+.output-name {
+    color: #00ff0088;
+    font-size: 0.85rem;
+}
+
+.output-status {
+    font-size: 1.5rem;
+    color: #00ff00;
+    text-shadow: 0 0 10px currentColor;
+}
+
+/* Terminal */
 .terminal {
     background: #0f0f0f;
     border: 1px solid #00ff0044;
@@ -125,14 +221,14 @@ h2 {
 
 .terminal-body {
     padding: 1rem;
-    height: 200px;
+    height: 180px;
     overflow-y: auto;
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.85rem;
+    line-height: 1.5;
 }
 
 .terminal-body p {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
 }
 
 .blink {
@@ -144,11 +240,13 @@ h2 {
     51%, 100% { opacity: 0; }
 }
 
+/* Info */
 .info {
     padding: 1.5rem;
     background: #0f0f0f;
     border: 1px solid #00ff0022;
     line-height: 1.8;
+    font-size: 0.9rem;
 }
 
 .info a {
@@ -167,6 +265,7 @@ h2 {
     font-size: 0.8rem;
 }
 
+/* Footer */
 footer {
     text-align: center;
     padding: 2rem 0;
@@ -196,12 +295,34 @@ body::after {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     h1.glitch {
         font-size: 2.5rem;
     }
     
     .container {
         padding: 1rem;
+    }
+    
+    .signal-meter {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .signal-label {
+        min-width: auto;
+    }
+    
+    .signal-value {
+        text-align: center;
+    }
+    
+    .feed-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .output-grid {
+        flex-direction: column;
+        align-items: center;
     }
 }
